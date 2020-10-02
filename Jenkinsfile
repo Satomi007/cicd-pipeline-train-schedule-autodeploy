@@ -38,7 +38,7 @@ pipeline {
                 }
             }
         }
-      /*  stage('CanaryDeploy') {
+        stage('CanaryDeploy') {
             when {
                 branch 'master'
             }
@@ -47,13 +47,13 @@ pipeline {
             }
             steps {
                 kubernetesDeploy(
-                    kubeconfigId: 'kubePass',
+                    kubeconfigId: 'kubeconfig',
                     configs: 'train-schedule-kube-canary.yml',
                     enableConfigSubstitution: true
                 )
             }
-        }*/
-        /*
+        }
+        
         stage('DeployToProduction') {
             when {
                 branch 'master'
@@ -65,12 +65,12 @@ pipeline {
                 input 'Deploy to Production?'
                 milestone(1)
                 kubernetesDeploy(
-                    kubeconfigId: 'KubePass',
+                    kubeconfigId: 'kubeconfig',
                     configs: 'train-schedule-kube-canary.yml',
                     enableConfigSubstitution: true
                 )
                 kubernetesDeploy(
-                    kubeconfigId: 'kubePass',
+                    kubeconfigId: 'kubeconfig',
                     configs: 'train-schedule-kube.yml',
                     enableConfigSubstitution: true
                 )
