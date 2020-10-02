@@ -75,6 +75,6 @@ pipeline {
                     enableConfigSubstitution: true
                 )
             }
-        }*/
+        }
     }
 }
